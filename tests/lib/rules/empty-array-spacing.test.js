@@ -4,19 +4,24 @@
 
 'use strict';
 
-var rule = require('../../../lib/rules/empty-object-spacing.js'),
+var rule = require('../../../lib/rules/empty-array-spacing.js'),
     formatCode = require('../../code-helper'),
     RuleTester = require('eslint').RuleTester,
     ruleTester = new RuleTester(),
     spacedExample, notSpacedExample, shouldBeSkipped;
 
-spacedExample = formatCode('var obj = { };');
-notSpacedExample = formatCode('var obj = {};');
+spacedExample = formatCode('var arr = [ ];');
+notSpacedExample = formatCode('var arr = [];');
 shouldBeSkipped = formatCode(
-   'var obj = { a: 1 };',
-   '    obj = {a: 1},',
-   '    obj2 = {b: 1 },',
-   '    obj3 = { c: 1};');
+   'var arr = [1,2,3],',
+   '    arr2 = [ 1,2,3],',
+   '    arr3 = [1,2,3 ],',
+   '    arr4 = [ 1,2,3, ],',
+   '    arr5 = [ 1, 2, 3, ];',
+   'arr[1] = 1;',
+   'arr[ 1 ] = 2;',
+   'arr[1 ] = 2;',
+   'arr[ 1] = 3;');
 
 ruleTester.run('empty-object-spacing', rule, {
    valid: [
@@ -45,8 +50,8 @@ ruleTester.run('empty-object-spacing', rule, {
          options: [ 'never' ],
          errors: [
             {
-               message: 'Empty object should not contain whitespace',
-               type: 'ObjectExpression',
+               message: 'Empty array should not contain whitespace',
+               type: 'ArrayExpression',
             }
          ],
       },
@@ -55,8 +60,8 @@ ruleTester.run('empty-object-spacing', rule, {
          options: [ 'always' ],
          errors: [
             {
-               message: 'Empty object requires space',
-               type: 'ObjectExpression',
+               message: 'Empty array requires space',
+               type: 'ArrayExpression',
             }
          ],
       },
