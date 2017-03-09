@@ -6,3 +6,6 @@ before_script:
 script:
    - grunt standards
    - npm test
+# For code coverage:
+after_success:
+   cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage

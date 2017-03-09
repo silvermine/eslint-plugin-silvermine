@@ -3,7 +3,7 @@
   "version": "1.0.2",
   "description": "eslint plugins to support our JS Code Standards. See eslint-config-silvermine",
   "scripts": {
-    "test": "mocha 'tests/**/*.test.js'"
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- -R spec 'tests/**/*.test.js'"
   },
   "main": "lib/index.js",
   "repository": {
@@ -31,11 +31,13 @@
     "node": ">=0.10.0"
   },
   "devDependencies": {
+    "coveralls": "2.12.0",
     "eslint": "2.12.0",
     "eslint-config-silvermine": "0.9.1",
     "grunt": "1.0.1",
     "grunt-cli": "1.2.0",
     "grunt-eslint": "19.0.0",
+    "istanbul": "0.4.5",
     "mocha": "2.5.3"
   }
 }
