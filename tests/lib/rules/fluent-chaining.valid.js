@@ -74,3 +74,24 @@ function validCase() {
          return x;
       }.bind(this));
 }
+
+function validCase() {
+   return promise
+      .then(function(val) {
+         console.log(val);
+      })
+      // test comment
+      .catch(function(err) {
+         console.log(err);
+      });
+}
+
+aPromise
+   .then(function(val) {
+      return val;
+   })
+   // these comments
+   // should not make us error
+   .catch(function(err) {
+      return err;
+   });
