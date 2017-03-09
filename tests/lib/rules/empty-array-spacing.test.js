@@ -21,7 +21,8 @@ shouldBeSkipped = formatCode(
    'arr[1] = 1;',
    'arr[ 1 ] = 2;',
    'arr[1 ] = 2;',
-   'arr[ 1] = 3;');
+   'arr[ 1] = 3;'
+);
 
 ruleTester.run('empty-object-spacing', rule, {
    valid: [

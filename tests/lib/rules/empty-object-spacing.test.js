@@ -16,7 +16,8 @@ shouldBeSkipped = formatCode(
    'var obj = { a: 1 };',
    '    obj = {a: 1},',
    '    obj2 = {b: 1 },',
-   '    obj3 = { c: 1};');
+   '    obj3 = { c: 1};'
+);
 
 ruleTester.run('empty-object-spacing', rule, {
    valid: [

@@ -26,11 +26,11 @@ validExample = formatCode(
    'var onFulfill, onReject;',
    '',
    'onFulfill = function(val) {',
-      'console.log(val);',
+   '   console.log(val);',
    '};',
    '',
    'onReject = function(err) {',
-      'console.log(err);',
+   '   console.log(err);',
    '};',
    '',
    'promise.then(onFulfill, onReject);'
