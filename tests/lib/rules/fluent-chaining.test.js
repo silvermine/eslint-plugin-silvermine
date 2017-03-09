@@ -35,6 +35,24 @@ function checkManyLinesError() {
    };
 }
 
+// member expression spanning multiple lines with comment
+function checkManyLinesCommentError() {
+   return {
+      code: formatCode(
+         'a()',
+         '',
+         '   // this comment should not make this pass',
+         '   .b();'
+      ),
+      errors: [
+         {
+            message: 'Member expression should not span more than 2 lines',
+            type: 'MemberExpression'
+         }
+      ]
+   };
+}
+
 // once statement is broken into multiple lines
 // each member expression should be on its own line
 function checkNewLineError() {
@@ -234,6 +252,11 @@ ruleTester.run('fluent-chaining - no false-positives for valid code', fluentChai
 ruleTester.run('fluent-chaining - checkManyLinesError', fluentChaining, {
    valid: [],
    invalid: [ checkManyLinesError() ],
+});
+
+ruleTester.run('fluent-chaining - checkManyLinesError', fluentChaining, {
+   valid: [],
+   invalid: [ checkManyLinesCommentError() ],
 });
 
 ruleTester.run('fluent-chaining - checkNewLineError', fluentChaining, {
