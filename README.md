@@ -1,4 +1,4 @@
-# SilverMine eslint plugin
+# Silvermine ESLint plugin
 
 [![Build Status](https://travis-ci.org/silvermine/eslint-plugin-silvermine.png?branch=master)](https://travis-ci.org/silvermine/eslint-plugin-silvermine)
 [![Coverage Status](https://coveralls.io/repos/github/silvermine/eslint-plugin-silvermine/badge.svg?branch=master)](https://coveralls.io/github/silvermine/eslint-plugin-silvermine?branch=master)
@@ -7,7 +7,7 @@
 
 ## What?
 
-Shareable [eslint](http://eslint.org/) plugins that are used by our shareable config rules.
+Shareable [ESLint](http://eslint.org/) plugins that are used by our shareable config rules.
 See [eslint-config-silvermine](https://github.com/silvermine/eslint-config-silvermine/) for more details.
 
 ## Why?
