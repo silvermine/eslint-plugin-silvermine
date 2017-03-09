@@ -47,7 +47,7 @@ ruleTester.run('empty-object-spacing', rule, {
             {
                message: 'Empty object should not contain whitespace',
                type: 'ObjectExpression',
-            }
+            },
          ],
       },
       {
@@ -57,7 +57,7 @@ ruleTester.run('empty-object-spacing', rule, {
             {
                message: 'Empty object requires space',
                type: 'ObjectExpression',
-            }
+            },
          ],
       },
    ],

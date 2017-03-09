@@ -47,21 +47,21 @@ ruleTester.run('uninitialized-last', rule, {
          errors: [
             {
                message: 'Uninitialized variables should come last in the declaration.',
-               type: 'VariableDeclaration'
+               type: 'VariableDeclaration',
             },
             {
                message: 'Uninitialized variables should come last in the declaration.',
-               type: 'VariableDeclaration'
+               type: 'VariableDeclaration',
             },
             {
                message: 'Uninitialized variables should come last in the declaration.',
-               type: 'VariableDeclaration'
+               type: 'VariableDeclaration',
             },
             {
                message: 'Uninitialized variables should come last in the declaration.',
-               type: 'VariableDeclaration'
+               type: 'VariableDeclaration',
             },
          ],
       },
-   ]
+   ],
 });

@@ -29,7 +29,7 @@ invalidExamples = [
       errors: [
          {
             message: MSG_CALL_SAME_INDENT,
-            type: 'CallExpression'
+            type: 'CallExpression',
          },
       ],
    },
@@ -74,7 +74,7 @@ invalidExamples = [
       errors: [
          {
             message: MSG_CALL_SAME_INDENT,
-            type: 'CallExpression'
+            type: 'CallExpression',
          },
          {
             message: MSG_PAREN_ON_NEW_LINE,
@@ -154,7 +154,7 @@ invalidExamples = [
       errors: [
          {
             message: MSG_CALL_SAME_INDENT,
-            type: 'CallExpression'
+            type: 'CallExpression',
          },
          {
             message: MSG_ARG_ON_NEW_LINE,
@@ -189,11 +189,11 @@ invalidExamples = [
       errors: [
          {
             message: MSG_MULTIPLE_MULTILINE_ARGS,
-            type: 'CallExpression'
+            type: 'CallExpression',
          },
          {
             message: MSG_MULTIPLE_MULTILINE_ARGS,
-            type: 'CallExpression'
+            type: 'CallExpression',
          },
       ],
    },

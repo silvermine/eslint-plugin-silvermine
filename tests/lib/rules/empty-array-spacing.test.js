@@ -52,7 +52,7 @@ ruleTester.run('empty-object-spacing', rule, {
             {
                message: 'Empty array should not contain whitespace',
                type: 'ArrayExpression',
-            }
+            },
          ],
       },
       {
@@ -62,7 +62,7 @@ ruleTester.run('empty-object-spacing', rule, {
             {
                message: 'Empty array requires space',
                type: 'ArrayExpression',
-            }
+            },
          ],
       },
    ],

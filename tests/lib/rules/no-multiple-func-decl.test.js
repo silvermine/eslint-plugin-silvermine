@@ -43,7 +43,7 @@ validExample = formatCode(
 
 ruleTester.run('no-multiple-inline-functions', noMultipleFunctionDeclaration, {
    valid: [
-      validExample
+      validExample,
    ],
    invalid: [
       {
@@ -51,9 +51,9 @@ ruleTester.run('no-multiple-inline-functions', noMultipleFunctionDeclaration, {
          errors: [
             {
                message: 'Too many function declarations used as arguments',
-               type: 'FunctionExpression'
-            }
-         ]
-      }
-   ]
+               type: 'FunctionExpression',
+            },
+         ],
+      },
+   ],
 });
