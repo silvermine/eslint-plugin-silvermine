@@ -29,9 +29,9 @@ function checkManyLinesError() {
       errors: [
          {
             message: 'Member expression should not span more than 2 lines',
-            type: 'MemberExpression'
-         }
-      ]
+            type: 'MemberExpression',
+         },
+      ],
    };
 }
 
@@ -47,9 +47,9 @@ function checkManyLinesCommentError() {
       errors: [
          {
             message: 'Member expression should not span more than 2 lines',
-            type: 'MemberExpression'
-         }
-      ]
+            type: 'MemberExpression',
+         },
+      ],
    };
 }
 
@@ -64,14 +64,14 @@ function checkNewLineError() {
       errors: [
          {
             message: 'Identifier "c" should be on a new line',
-            type: 'Identifier'
-         }
+            type: 'Identifier',
+         },
       ],
       output: formatCode(
          'a()',
          '   .b()',
          '   .c;'
-      )
+      ),
    };
 }
 
@@ -84,22 +84,22 @@ function checkNewLineErrorWithTabOption() {
       errors: [
          {
             message: 'Identifier "c" should be on a new line',
-            type: 'Identifier'
-         }
+            type: 'Identifier',
+         },
       ],
       options: [ { IndentChar: 'tab', IndentAmount: 1 } ],
       output: formatCode(
          'a()',
          '\t.b()',
          '\t.c;'
-      )
+      ),
    };
 }
 
 function spacingErrorMessage(identifier, indentAmount, indentChar) {
    return {
       message: 'Expected identifier "' + identifier + '" to be indented ' + indentAmount + ' chars (char: "' + indentChar + '")',
-      type: 'Identifier'
+      type: 'Identifier',
    };
 }
 
@@ -115,7 +115,7 @@ function checkSpacingError() {
       output: formatCode(
          'a()',
          '   .b();'
-      )
+      ),
    };
 }
 
@@ -132,7 +132,7 @@ function checkSpacingErrorWithIndentOption() {
       output: formatCode(
          'a()',
          '    .b();'
-      )
+      ),
    };
 }
 
@@ -149,7 +149,7 @@ function checkSpacingErrorWithTabOption() {
       output: formatCode(
          'a()',
          '\t.b();'
-      )
+      ),
    };
 }
 
@@ -170,7 +170,7 @@ function checkSpacingErrorWhenCallHasFunctionArguments() {
       errors: [
          spacingErrorMessage('then', 3, ' '),
       ],
-      output: code // output should be unchanged
+      output: code, // output should be unchanged
    };
 }
 
@@ -190,14 +190,14 @@ function checkSpacingErrorWhenNested() {
       errors: [
          spacingErrorMessage('then', 6, ' '),
          spacingErrorMessage('then', 6, ' '),
-      ]
+      ],
    };
 }
 
 function chainingIndentationMatchErrorMessage() {
    return {
       message: 'Call expression should be on a new line and indented',
-      type: 'CallExpression'
+      type: 'CallExpression',
    };
 }
 
@@ -217,7 +217,7 @@ function checkChainingIndentationError1() {
       ),
       errors: [
          chainingIndentationMatchErrorMessage(),
-      ]
+      ],
    };
 }
 
@@ -234,7 +234,7 @@ function checkChainingIndentationError2() {
       ),
       errors: [
          chainingIndentationMatchErrorMessage(),
-      ]
+      ],
    };
 }
 
@@ -244,7 +244,7 @@ function checkChainingIndentationError2() {
 
 ruleTester.run('fluent-chaining - no false-positives for valid code', fluentChaining, {
    valid: [
-      fs.readFileSync(path.join(__dirname, '/fluent-chaining.valid.js'), 'utf8') // eslint-disable-line no-sync
+      fs.readFileSync(path.join(__dirname, '/fluent-chaining.valid.js'), 'utf8'), // eslint-disable-line no-sync
    ],
    invalid: [],
 });

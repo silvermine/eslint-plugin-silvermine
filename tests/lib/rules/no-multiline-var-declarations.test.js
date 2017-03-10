@@ -55,15 +55,15 @@ ruleTester.run('no-multiline-var-declaration', rule, {
          code: invalidExample,
          errors: [ {
             message: 'Variable declaration for myArray should not span multiple lines.',
-            type: 'VariableDeclarator'
-         } ]
+            type: 'VariableDeclarator',
+         } ],
       },
       {
          code: invalidExample2,
          errors: [ {
             message: 'Variable declaration for myObj should not span multiple lines.',
-            type: 'VariableDeclarator'
-         } ]
+            type: 'VariableDeclarator',
+         } ],
       },
-   ]
+   ],
 });

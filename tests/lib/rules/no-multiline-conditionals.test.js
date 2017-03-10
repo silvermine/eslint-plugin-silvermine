@@ -108,43 +108,43 @@ ruleTester.run('no-multiline-conditionals', rule, {
          code: invalidIf,
          errors: [ {
             message: 'IfStatement should not span multiple lines.',
-            type: 'IfStatement'
-         } ]
+            type: 'IfStatement',
+         } ],
       },
       {
          code: invalidIfElse,
          errors: [ {
             message: 'IfStatement should not span multiple lines.',
-            type: 'IfStatement'
-         } ]
+            type: 'IfStatement',
+         } ],
       },
       {
          code: invalidWhile,
          errors: [ {
             message: 'WhileStatement should not span multiple lines.',
-            type: 'WhileStatement'
-         } ]
+            type: 'WhileStatement',
+         } ],
       },
       {
          code: invalidFor,
          errors: [ {
             message: 'ForStatement should not span multiple lines.',
-            type: 'ForStatement'
-         } ]
+            type: 'ForStatement',
+         } ],
       },
       {
          code: invalidDoWhile,
          errors: [ {
             message: 'DoWhileStatement should not span multiple lines.',
-            type: 'DoWhileStatement'
-         } ]
+            type: 'DoWhileStatement',
+         } ],
       },
       {
          code: invalidForIn,
          errors: [ {
             message: 'ForInStatement should not span multiple lines.',
-            type: 'ForInStatement'
-         } ]
+            type: 'ForInStatement',
+         } ],
       },
-   ]
+   ],
 });
