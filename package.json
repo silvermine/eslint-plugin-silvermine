@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-silvermine",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "eslint plugins to support our JS Code Standards. See eslint-config-silvermine",
   "scripts": {
     "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- -R spec 'tests/**/*.test.js'"
