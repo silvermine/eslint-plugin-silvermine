@@ -95,3 +95,22 @@ aPromise
    .catch(function(err) {
       return err;
    });
+
+aPromise
+   .then(function(val) {
+      return val;
+   })
+   .then(namedFunction) //comment on same line
+   .catch(function(err) {
+      return err;
+   });
+
+aPromise
+   .then(function(val) {
+      return val;
+   })
+   .then(namedFunction) //comment on same line
+   // comment on new line
+   .catch(function(err) {
+      return err;
+   });
