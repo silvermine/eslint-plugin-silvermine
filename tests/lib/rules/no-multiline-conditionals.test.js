@@ -3,9 +3,9 @@
  */
 'use strict';
 
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 // Requirements
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 
 var rule = require('../../../lib/rules/no-multiline-conditionals'),
     formatCode = require('../../code-helper'),
@@ -94,9 +94,9 @@ invalidDoWhile = formatCode(
    ');'
 );
 
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 // Tests
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 
 ruleTester.run('no-multiline-conditionals', rule, {
    valid: [
@@ -106,45 +106,57 @@ ruleTester.run('no-multiline-conditionals', rule, {
    invalid: [
       {
          code: invalidIf,
-         errors: [ {
-            message: 'IfStatement should not span multiple lines.',
-            type: 'IfStatement',
-         } ],
+         errors: [
+            {
+               message: 'IfStatement should not span multiple lines.',
+               type: 'IfStatement',
+            },
+         ],
       },
       {
          code: invalidIfElse,
-         errors: [ {
-            message: 'IfStatement should not span multiple lines.',
-            type: 'IfStatement',
-         } ],
+         errors: [
+            {
+               message: 'IfStatement should not span multiple lines.',
+               type: 'IfStatement',
+            },
+         ],
       },
       {
          code: invalidWhile,
-         errors: [ {
-            message: 'WhileStatement should not span multiple lines.',
-            type: 'WhileStatement',
-         } ],
+         errors: [
+            {
+               message: 'WhileStatement should not span multiple lines.',
+               type: 'WhileStatement',
+            },
+         ],
       },
       {
          code: invalidFor,
-         errors: [ {
-            message: 'ForStatement should not span multiple lines.',
-            type: 'ForStatement',
-         } ],
+         errors: [
+            {
+               message: 'ForStatement should not span multiple lines.',
+               type: 'ForStatement',
+            },
+         ],
       },
       {
          code: invalidDoWhile,
-         errors: [ {
-            message: 'DoWhileStatement should not span multiple lines.',
-            type: 'DoWhileStatement',
-         } ],
+         errors: [
+            {
+               message: 'DoWhileStatement should not span multiple lines.',
+               type: 'DoWhileStatement',
+            },
+         ],
       },
       {
          code: invalidForIn,
-         errors: [ {
-            message: 'ForInStatement should not span multiple lines.',
-            type: 'ForInStatement',
-         } ],
+         errors: [
+            {
+               message: 'ForInStatement should not span multiple lines.',
+               type: 'ForInStatement',
+            },
+         ],
       },
    ],
 });
