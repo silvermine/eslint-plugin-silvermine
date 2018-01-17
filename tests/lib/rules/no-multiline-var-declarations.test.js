@@ -3,9 +3,9 @@
 */
 'use strict';
 
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 // Requirements
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 
 var rule = require('../../../lib/rules/no-multiline-var-declaration'),
     formatCode = require('../../code-helper'),
@@ -41,9 +41,9 @@ invalidExample2 = formatCode(
    '    }'
 );
 
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 // Tests
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 
 ruleTester.run('no-multiline-var-declaration', rule, {
    valid: [
@@ -53,17 +53,21 @@ ruleTester.run('no-multiline-var-declaration', rule, {
    invalid: [
       {
          code: invalidExample,
-         errors: [ {
-            message: 'Variable declaration for myArray should not span multiple lines.',
-            type: 'VariableDeclarator',
-         } ],
+         errors: [
+            {
+               message: 'Variable declaration for myArray should not span multiple lines.',
+               type: 'VariableDeclarator',
+            },
+         ],
       },
       {
          code: invalidExample2,
-         errors: [ {
-            message: 'Variable declaration for myObj should not span multiple lines.',
-            type: 'VariableDeclarator',
-         } ],
+         errors: [
+            {
+               message: 'Variable declaration for myObj should not span multiple lines.',
+               type: 'VariableDeclarator',
+            },
+         ],
       },
    ],
 });
