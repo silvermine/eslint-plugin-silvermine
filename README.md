@@ -1,9 +1,9 @@
 # Silvermine ESLint plugin
 
-[![Build Status](https://travis-ci.org/silvermine/eslint-plugin-silvermine.png?branch=master)](https://travis-ci.org/silvermine/eslint-plugin-silvermine)
+[![Build Status](https://travis-ci.org/silvermine/eslint-plugin-silvermine.svg?branch=master)](https://travis-ci.org/silvermine/eslint-plugin-silvermine)
 [![Coverage Status](https://coveralls.io/repos/github/silvermine/eslint-plugin-silvermine/badge.svg?branch=master)](https://coveralls.io/github/silvermine/eslint-plugin-silvermine?branch=master)
-[![Dependency Status](https://david-dm.org/silvermine/eslint-plugin-silvermine.png)](https://david-dm.org/silvermine/eslint-plugin-silvermine)
-[![Dev Dependency Status](https://david-dm.org/silvermine/eslint-plugin-silvermine/dev-status.png)](https://david-dm.org/silvermine/eslint-plugin-silvermine#info=devDependencies&view=table)
+[![Dependency Status](https://david-dm.org/silvermine/eslint-plugin-silvermine.svg)](https://david-dm.org/silvermine/eslint-plugin-silvermine)
+[![Dev Dependency Status](https://david-dm.org/silvermine/eslint-plugin-silvermine/dev-status.svg)](https://david-dm.org/silvermine/eslint-plugin-silvermine#info=devDependencies&view=table)
 
 ## What?
 
