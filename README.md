@@ -8,7 +8,7 @@
 ## What?
 
 Shareable [ESLint](http://eslint.org/) plugins that are used by our shareable config rules.
-See [eslint-config-silvermine](https://github.com/silvermine/eslint-config-silvermine/) for more details.
+See [@silvermine/eslint-config](https://github.com/silvermine/eslint-config-silvermine/) for more details.
 
 ## Why?
 

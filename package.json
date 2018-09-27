@@ -14,7 +14,7 @@
     "eslint",
     "eslintplugin",
     "eslint-plugin",
-    "eslint-config-silvermine"
+    "@silvermine/eslint-config"
   ],
   "license": "MIT",
   "author": "Jeremy Thomerson",
@@ -31,9 +31,9 @@
     "node": ">=0.10.0"
   },
   "devDependencies": {
+    "@silvermine/eslint-config": "git+https://github.com/silvermine/eslint-config-silvermine.git#3cb9c404cb0fe4c5774f2463d7faed58ea59c718",
     "coveralls": "3.0.2",
     "eslint": "4.15.0",
-    "eslint-config-silvermine": "1.4.0",
     "grunt": "1.0.3",
     "grunt-cli": "1.2.0",
     "grunt-eslint": "20.1.0",
