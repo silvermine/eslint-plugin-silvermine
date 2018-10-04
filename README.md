@@ -22,13 +22,13 @@ You'll first need to install [ESLint](http://eslint.org):
 $ npm install eslint --save-dev
 ```
 
-Next, install `eslint-plugin-silvermine`:
+Next, install `@silvermine/eslint-plugin-silvermine`:
 
 ```
-$ npm install eslint-plugin-silvermine --save-dev
+$ npm install @silvermine/eslint-plugin-silvermine --save-dev
 ```
 
-**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-silvermine` globally.
+**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `@silvermine/eslint-plugin-silvermine` globally.
 
 ## Usage
 
@@ -37,7 +37,7 @@ Add `silvermine` to the plugins section of your `.eslintrc` configuration file. 
 ```json
 {
     "plugins": [
-        "silvermine"
+        "@silvermine/eslint-plugin-silvermine"
     ]
 }
 ```
@@ -48,7 +48,7 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
     "rules": {
-        "silvermine/fluent-chaining": 2
+        "@silvermine/silvermine/fluent-chaining": 2
     }
 }
 ```
