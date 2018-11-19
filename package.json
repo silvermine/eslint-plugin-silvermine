@@ -29,15 +29,17 @@
     "underscore": "1.8.3"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=6.0"
   },
   "devDependencies": {
     "coveralls": "3.0.2",
-    "eslint": "4.15.0",
+    "eslint": "4.19.1",
     "grunt": "1.0.3",
     "grunt-cli": "1.2.0",
     "grunt-eslint": "20.1.0",
     "istanbul": "0.4.5",
-    "mocha": "5.2.0"
+    "mocha": "5.2.0",
+    "typescript": "3.0.3",
+    "typescript-eslint-parser": "21.0.1"
   }
 }
