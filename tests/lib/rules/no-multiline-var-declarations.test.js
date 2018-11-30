@@ -9,9 +9,9 @@
 
 var rule = require('../../../lib/rules/no-multiline-var-declaration'),
     formatCode = require('../../code-helper'),
-    RuleTester = require('eslint').RuleTester,
-    ruleTester = new RuleTester(),
-    invalidExample, invalidExample2, validExample;
+    ruleTester = require('../../ruleTesters').es6(),
+    invalidExample, invalidExample2, validExample,
+    validSingleConst, invalidSingleConst, invalidSingleConst2;
 
 validExample = formatCode(
    'var myArray = [],',
@@ -41,18 +41,61 @@ invalidExample2 = formatCode(
    '    }'
 );
 
+validSingleConst = formatCode(
+   'const MY_INT = 1;',
+   '',
+   'const MY_CONST = {',
+   '   a: 1,',
+   '   b: 2,',
+   '   c: 3',
+   '};'
+);
+
+invalidSingleConst = formatCode(
+   'const MY_INT = 1,',
+   '      MY_CONST = {',
+   '         a: 1,',
+   '         b: 2,',
+   '         c: 3',
+   '      };'
+);
+
+invalidSingleConst2 = formatCode(
+   'let myLetVar = [',
+   '   1,',
+   '   2,',
+   '   3',
+   '];',
+   '',
+   'const MY_INT = 1;',
+   '',
+   'const MY_CONST = {',
+   '   a: 1,',
+   '   b: 2,',
+   '   c: 3',
+   '};'
+);
+
 // ------------------------------------------------------------------------------
 // Tests
 // ------------------------------------------------------------------------------
 
 ruleTester.run('no-multiline-var-declaration', rule, {
    valid: [
-      validExample,
+      {
+         code: validExample,
+         options: [],
+      },
+      {
+         code: validSingleConst,
+         options: [ { 'var': 'never', 'let': 'never', 'const': 'single-only' } ],
+      },
    ],
 
    invalid: [
       {
          code: invalidExample,
+         options: [],
          errors: [
             {
                message: 'Variable declaration for myArray should not span multiple lines.',
@@ -62,9 +105,30 @@ ruleTester.run('no-multiline-var-declaration', rule, {
       },
       {
          code: invalidExample2,
+         options: [],
          errors: [
             {
                message: 'Variable declaration for myObj should not span multiple lines.',
+               type: 'VariableDeclarator',
+            },
+         ],
+      },
+      {
+         code: invalidSingleConst,
+         options: [ { 'var': 'never', 'let': 'never', 'const': 'single-only' } ],
+         errors: [
+            {
+               message: 'Variable declaration for MY_CONST should not span multiple lines.',
+               type: 'VariableDeclarator',
+            },
+         ],
+      },
+      {
+         code: invalidSingleConst2,
+         options: [ { 'var': 'never', 'let': 'never', 'const': 'single-only' } ],
+         errors: [
+            {
+               message: 'Variable declaration for myLetVar should not span multiple lines.',
                type: 'VariableDeclarator',
             },
          ],
