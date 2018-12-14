@@ -83,7 +83,7 @@ constExample = formatCode(
    '      a: 1,',
    '      b: 2,',
    '   },',
-   '];',
+   '];'
 );
 
 constInvalid = formatCode(
@@ -120,8 +120,8 @@ ruleTester.run('indent', rule, {
          code: invalidExample,
          errors: [
             {
-               message: 'Expected indentation of 7 space characters but found 6.',
-               type: 'VariableDeclarator',
+               message: 'Expected indentation of 7 spaces but found 6.',
+               type: 'Identifier',
             },
          ],
          options: [ 3, { 'VariableDeclaratorOffset': { 'var': 1, 'let': 1, 'const': 3 }, 'SwitchCase': 1 } ],
@@ -130,8 +130,8 @@ ruleTester.run('indent', rule, {
          code: invalidExample2,
          errors: [
             {
-               message: 'Expected indentation of 3 space characters but found 2.',
-               type: 'ExpressionStatement',
+               message: 'Expected indentation of 3 spaces but found 2.',
+               type: 'Identifier',
             },
          ],
          options: [ 3, { 'VariableDeclaratorOffset': { 'var': 1, 'let': 1, 'const': 3 }, 'SwitchCase': 1 } ],
@@ -140,8 +140,8 @@ ruleTester.run('indent', rule, {
          code: invalidExample3,
          errors: [
             {
-               message: 'Expected indentation of 3 space characters but found 0.',
-               type: 'ExpressionStatement',
+               message: 'Expected indentation of 3 spaces but found 0.',
+               type: 'Identifier',
             },
          ],
          options: [ 3, { 'VariableDeclaratorOffset': { 'var': 1, 'let': 1, 'const': 3 }, 'SwitchCase': 1 } ],
@@ -150,20 +150,20 @@ ruleTester.run('indent', rule, {
          code: switchTest,
          errors: [
             {
-               message: 'Expected indentation of 0 space characters but found 3.',
-               type: 'SwitchCase',
+               message: 'Expected indentation of 0 spaces but found 3.',
+               type: 'Keyword',
             },
             {
-               message: 'Expected indentation of 3 space characters but found 6.',
-               type: 'BreakStatement',
+               message: 'Expected indentation of 3 spaces but found 6.',
+               type: 'Keyword',
             },
             {
-               message: 'Expected indentation of 0 space characters but found 3.',
-               type: 'SwitchCase',
+               message: 'Expected indentation of 0 spaces but found 3.',
+               type: 'Keyword',
             },
             {
-               message: 'Expected indentation of 3 space characters but found 6.',
-               type: 'ExpressionStatement',
+               message: 'Expected indentation of 3 spaces but found 6.',
+               type: 'Identifier',
             },
          ],
          options: [ 3, { 'VariableDeclaratorOffset': { 'var': 1, 'let': 1, 'const': 3 } } ],
@@ -172,12 +172,12 @@ ruleTester.run('indent', rule, {
          code: constInvalid,
          errors: [
             {
-               message: 'Expected indentation of 6 space characters but found 3.',
-               type: 'VariableDeclarator',
+               message: 'Expected indentation of 6 spaces but found 3.',
+               type: 'Identifier',
             },
             {
-               message: 'Expected indentation of 6 space characters but found 4.',
-               type: 'VariableDeclarator',
+               message: 'Expected indentation of 6 spaces but found 4.',
+               type: 'Identifier',
             },
          ],
          options: [ 3, { 'VariableDeclaratorOffset': { 'var': 1, 'let': 1, 'const': 3 }, 'SwitchCase': 1 } ],
