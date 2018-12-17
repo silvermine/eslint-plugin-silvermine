@@ -9,10 +9,10 @@
 
 var rule = require('../../../lib/rules/indent'),
     formatCode = require('../../code-helper'),
-    RuleTester = require('eslint').RuleTester,
-    ruleTester = new RuleTester(),
-    validExample, switchTest, constExample,
-    invalidExample, invalidExample2, invalidExample3, constInvalid;
+    ruleTester = require('../../ruleTesters').es6(),
+    validExample, varOnlyExample, switchTest, constExample, flatTernaryValid,
+    invalidExample, invalidExample2, invalidExample3, constInvalid,
+    classInvalid;
 
 validExample = formatCode(
    'var a = 1,',
@@ -34,11 +34,67 @@ validExample = formatCode(
    '   var arr = [ 1, 2, 3 ],',
    '       noInit, andAgain;',
    '',
+   '   // This comment should be indented with the if statement',
    '   if (noInit) {',
    '      var a = 1,',
    '          b = 2;',
    '   }',
-   '}'
+   '}',
+   '',
+   'class MyClass {',
+   '   /**',
+   '    * This should be indented with the function.',
+   '    *',
+   '    * @param {number} num base number to add',
+   '    */',
+   '   constructor(num) {',
+   '      this.a = num;',
+   '   }',
+   '',
+   '   add(b) {',
+   '      return this.a + b;',
+   '   }',
+   '}',
+   '',
+   'const myClass = new MyClass();',
+   '',
+   'for (let i = 1; i < 10; i++) {',
+   '   console.log(i);',
+   '}',
+   '',
+   'myFunc().then((var1) => {',
+   '   return doSomething(var1);',
+   '});',
+   '',
+   'myFunc(',
+   '   myClass,',
+   '   a,',
+   '   b,',
+   '   c',
+   ');',
+   '',
+   'try {',
+   '   myFunc();',
+   '} catch (err) {',
+   '   console.error(err);',
+   '}',
+   '',
+   '(function() {',
+   '   doSomethingNow();',
+   '})();'
+);
+
+varOnlyExample = formatCode(
+   'var a = 1,',
+   '    b = 2,',
+   '    c = 3;'
+);
+
+flatTernaryValid = formatCode(
+   'var a =',
+   '    foo > 0 ? bar :',
+   '    foo < 0 ? baz :',
+   '    qiz;'
 );
 
 invalidExample = formatCode(
@@ -47,7 +103,17 @@ invalidExample = formatCode(
    '      b = 2;',
    '',
    '   return a + b;',
-   '}'
+   '}',
+   '',
+   'myFunc(',
+   'myClass,',
+   'a',
+   ');',
+   '',
+   'var foo = {',
+   '   bar: 1,',
+   '  baz: 2,',
+   '};'
 );
 
 invalidExample2 = formatCode(
@@ -94,6 +160,18 @@ constInvalid = formatCode(
    '    D = 4;'
 );
 
+classInvalid = formatCode(
+   'class MyClass {',
+   'constructor(num) {',
+   '   this.a = num;',
+   '}',
+   '',
+   'add(b) {',
+   '   return this.a + b;',
+   '}',
+   '}'
+);
+
 // ------------------------------------------------------------------------------
 // Tests
 // ------------------------------------------------------------------------------
@@ -113,6 +191,14 @@ ruleTester.run('indent', rule, {
          options: [ 3, { 'VariableDeclaratorOffset': { 'var': 1, 'let': 1, 'const': 3 }, 'SwitchCase': 1 } ],
          parserOptions: { ecmaVersion: 6 },
       },
+      {
+         code: varOnlyExample,
+         options: [ 3, { 'VariableDeclaratorOffset': 1 } ],
+      },
+      {
+         code: flatTernaryValid,
+         options: [ 3, { 'flatTernaryExpressions': true } ],
+      },
    ],
 
    invalid: [
@@ -121,6 +207,18 @@ ruleTester.run('indent', rule, {
          errors: [
             {
                message: 'Expected indentation of 7 spaces but found 6.',
+               type: 'Identifier',
+            },
+            {
+               message: 'Expected indentation of 3 spaces but found 0.',
+               type: 'Identifier',
+            },
+            {
+               message: 'Expected indentation of 3 spaces but found 0.',
+               type: 'Identifier',
+            },
+            {
+               message: 'Expected indentation of 3 spaces but found 2.',
                type: 'Identifier',
             },
          ],
@@ -178,6 +276,37 @@ ruleTester.run('indent', rule, {
             {
                message: 'Expected indentation of 6 spaces but found 4.',
                type: 'Identifier',
+            },
+         ],
+         options: [ 3, { 'VariableDeclaratorOffset': { 'var': 1, 'let': 1, 'const': 3 }, 'SwitchCase': 1 } ],
+         parserOptions: { ecmaVersion: 6 },
+      },
+      {
+         code: classInvalid,
+         errors: [
+            {
+               message: 'Expected indentation of 3 spaces but found 0.',
+               type: 'Identifier',
+            },
+            {
+               message: 'Expected indentation of 6 spaces but found 3.',
+               type: 'Keyword',
+            },
+            {
+               message: 'Expected indentation of 3 spaces but found 0.',
+               type: 'Punctuator',
+            },
+            {
+               message: 'Expected indentation of 3 spaces but found 0.',
+               type: 'Identifier',
+            },
+            {
+               message: 'Expected indentation of 6 spaces but found 3.',
+               type: 'Keyword',
+            },
+            {
+               message: 'Expected indentation of 3 spaces but found 0.',
+               type: 'Punctuator',
             },
          ],
          options: [ 3, { 'VariableDeclaratorOffset': { 'var': 1, 'let': 1, 'const': 3 }, 'SwitchCase': 1 } ],
