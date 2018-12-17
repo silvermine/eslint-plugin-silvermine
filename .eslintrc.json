@@ -2,5 +2,13 @@
    "env": {
       "node": true
    },
-   "extends": "@silvermine/eslint-config/node"
+   "extends": "@silvermine/eslint-config/node",
+
+   "rules": {
+      "prefer-template": "off",
+      "padding-line-between-statements": [
+         "error",
+         { "blankLine": "any", "prev": [ "*" ], "next": "return" }
+      ]
+   }
 }
