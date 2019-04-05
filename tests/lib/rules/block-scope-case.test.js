@@ -7,11 +7,24 @@ var rule = require('../../../lib/rules/block-scope-case'),
     formatCode = require('../../code-helper'),
     RuleTester = require('eslint').RuleTester,
     ruleTester = new RuleTester(),
-    invalidExample1, invalidExample2, validExample;
+    invalidExample1, invalidExample2, invalidExample3, validExample1, validExample2;
 
 
-validExample = formatCode(
+validExample1 = formatCode(
    'switch (x) {',
+   '   case 2: {',
+   '      doSomethingWith2(x);',
+   '      break;',
+   '   }',
+   '   default: {',
+   '      doSomethingWithEverythingElse(x);',
+   '   }',
+   '}'
+);
+
+validExample2 = formatCode(
+   'switch (x) {',
+   '   case 1:',
    '   case 2: {',
    '      doSomethingWith2(x);',
    '      break;',
@@ -43,10 +56,22 @@ invalidExample2 = formatCode(
    '}'
 );
 
+invalidExample3 = formatCode(
+   'switch (x) {',
+   '   case 1:',
+   '   case 2: ',
+   '      doSomethingWith2(x);',
+   '      break;',
+   '   default: {',
+   '      doSomethingWithEverythingElse(x);',
+   '   }',
+   '}'
+);
 
 ruleTester.run('block-scope-case', rule, {
    valid: [
-      validExample,
+      validExample1,
+      validExample2,
    ],
 
    invalid: [
@@ -65,6 +90,15 @@ ruleTester.run('block-scope-case', rule, {
       },
       {
          code: invalidExample2,
+         errors: [
+            {
+               message: 'Case statements must be block scoped.',
+               type: 'SwitchCase',
+            },
+         ],
+      },
+      {
+         code: invalidExample3,
          errors: [
             {
                message: 'Case statements must be block scoped.',
