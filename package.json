@@ -32,7 +32,7 @@
     "npm": "6.4.1"
   },
   "devDependencies": {
-    "@silvermine/eslint-config": "2.0.0-preview.2",
+    "@silvermine/eslint-config": "2.2.0",
     "coveralls": "3.0.2",
     "eslint": "5.11.1",
     "grunt": "1.0.3",
