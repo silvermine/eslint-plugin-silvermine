@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file. See [standa
 <a name="2.2.1"></a>
 ## [2.2.1](https://github.com/silvermine/eslint-plugin-silvermine/compare/v2.2.0...v2.2.1) (2019-04-05)
 
+### Fixes
+
+ * Allow multiple cases for a single block inside switch statements ([c5feca0](https://github.com/silvermine/eslint-plugin-silvermine/commit/c5feca0))
 
 
 <a name="2.2.0"></a>
