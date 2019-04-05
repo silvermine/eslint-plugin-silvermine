@@ -7,7 +7,7 @@ module.exports = function(grunt) {
       pkg: grunt.file.readJSON('package.json'),
 
       eslint: {
-         target: [ 'lib/**/*.js', 'tests/**/*.js', '!**/*.valid.js', '!**/*.invalid.js' ],
+         target: [ '*.js', 'lib/**/*.js', 'tests/**/*.js', '!**/*.valid.js', '!**/*.invalid.js' ],
       },
 
    });
