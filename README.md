@@ -32,8 +32,6 @@ Next, install `@silvermine/eslint-plugin-silvermine`:
 $ npm install @silvermine/eslint-plugin-silvermine --save-dev
 ```
 
-**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `@silvermine/eslint-plugin-silvermine` globally.
-
 ## Usage
 
 Add `silvermine` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
