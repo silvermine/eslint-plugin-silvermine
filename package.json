@@ -34,18 +34,18 @@
   "devDependencies": {
     "@commitlint/cli": "7.5.2",
     "@commitlint/travis-cli": "7.5.2",
-    "@silvermine/eslint-config": "2.2.0",
+    "@silvermine/eslint-config": "git+https://github.com/silvermine/eslint-config-silvermine.git#2a4826eade1cf6c3b977798a84eb8f5a6720742e",
+    "@typescript-eslint/parser": "^2.13.0",
     "coveralls": "3.0.2",
     "cz-conventional-changelog": "2.1.0",
-    "eslint": "5.11.1",
+    "eslint": "6.8.0",
     "grunt": "1.0.3",
     "grunt-cli": "1.2.0",
-    "grunt-eslint": "21.0.0",
+    "grunt-eslint": "22.0.0",
     "istanbul": "0.4.5",
     "mocha": "5.2.0",
     "standard-version": "git+https://github.com/jthomerson/standard-version.git#fix-305-header-repeat",
-    "typescript": "3.0.3",
-    "typescript-eslint-parser": "21.0.1"
+    "typescript": "3.0.3"
   },
   "config": {
     "commitizen": {
