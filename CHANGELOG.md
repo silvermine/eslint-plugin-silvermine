@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0-rc.0](https://github.com/silvermine/eslint-plugin-silvermine/compare/v2.2.1...v2.3.0-rc.0) (2020-01-22)
+
+
+### Bug Fixes
+
+* remove forked indent rule ([#41](https://github.com/silvermine/eslint-plugin-silvermine/issues/41)) ([b036348](https://github.com/silvermine/eslint-plugin-silvermine/commit/b0363487fdba0d5d46f2e33138bd9c3f91e1a0c7))
+
 <a name="2.2.1"></a>
 ## [2.2.1](https://github.com/silvermine/eslint-plugin-silvermine/compare/v2.2.0...v2.2.1) (2019-04-05)
 
