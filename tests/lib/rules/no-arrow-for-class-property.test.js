@@ -43,7 +43,7 @@ ruleTester.run('no-arrow-for-class-property', rule, {
          errors: [
             {
                message: 'Arrow functions should not be used for class properties.',
-               type: 'ClassProperty',
+               type: 'PropertyDefinition',
             },
          ],
       },
