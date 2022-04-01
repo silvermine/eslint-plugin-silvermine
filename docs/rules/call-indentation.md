@@ -6,6 +6,7 @@ Only one multiline argument is allowed per function call in either
 format.
 
 ## Option 1 - All start on the same line
+
 A call to a function that spans multiple lines because of an array,
 object or anonymous function call should begin and end with the
 same indentation. Each argument should start on the same line that
@@ -18,7 +19,7 @@ of the arguments should have each argument on its own line. The closing
 parenthesis should be on its own line with the same indentation as
 the function call.
 
-### Invalid examples:
+### Invalid examples
 
 ```js
 _.map(languages,
@@ -26,17 +27,19 @@ _.map(languages,
       return lang.name;
    });
 ```
+
 The inner function should have started on the same line as the outer
 and the inner function's closing bracket should be indented to the same level
 as the line of the outer function.
 
-```
+```js
 fn(arg1, arg2,
    arg3);
 ```
+
 The arg3 should have been on the same line as the other two.
 
-```
+```js
 promise.then(function() {
    yayItWorked();
 }, function(err) {
@@ -52,9 +55,10 @@ promise.then(
    }
 );
 ```
+
 Only one multiline argument is allowed.
 
-### Valid examples:
+### Valid Examples
 
 ```js
 _.map(languages, function(lang) {
