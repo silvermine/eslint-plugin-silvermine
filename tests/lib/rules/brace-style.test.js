@@ -27,6 +27,20 @@ invalidExamples = [
          '  doSomething(b);',
          '};'
       ),
+      output: formatCode(
+         'if (a === b) {',
+         ' doSomething() ',
+         '}',
+         'if (a === b) {',
+         ' doSomething(); ',
+         '}',
+         'if (a === b ) {',
+         '   doSomething();',
+         '}',
+         'let badArrow = (b) => {',
+         '  doSomething(b);',
+         '};'
+      ),
       errors: [
          {
             message: 'Statement inside of curly braces should be on next line.',
