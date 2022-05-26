@@ -34,7 +34,7 @@
   "devDependencies": {
     "@commitlint/cli": "12.1.1",
     "@commitlint/travis-cli": "12.1.1",
-    "@silvermine/eslint-config": "git+https://github.com/silvermine/eslint-config-silvermine.git#9f174180d70908bb9e366886d36163faedf755ea",
+    "@silvermine/eslint-config": "3.1.0-beta.1",
     "@silvermine/standardization": "1.3.0",
     "@typescript-eslint/parser": "5.17.0",
     "check-node-version": "4.0.2",
