@@ -10,7 +10,7 @@ node_js:
 before_install: npm i -g npm@8.5.5
 
 script:
-   - grunt standards
+   - npm run standards
    - npm test
    - commitlint-travis
 
