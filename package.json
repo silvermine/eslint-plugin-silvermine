@@ -3,7 +3,7 @@
   "version": "2.4.0",
   "description": "eslint plugins to support our JS Code Standards. See @silvermine/eslint-config-silvermine",
   "scripts": {
-    "test": "check-node-version --npm 6.14.12 && nyc mocha -- 'tests/**/*.test.js'",
+    "test": "check-node-version --npm 8.5.5 && nyc mocha -- 'tests/**/*.test.js'",
     "commitlint": "commitlint --from 2317166",
     "release:preview": "node ./node_modules/@silvermine/standardization/scripts/release.js preview",
     "release:prep-changelog": "node ./node_modules/@silvermine/standardization/scripts/release.js prep-changelog",
