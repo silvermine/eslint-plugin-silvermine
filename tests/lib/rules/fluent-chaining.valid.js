@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * @fileoverview This file contains examples of valid chained expressions
  */

@@ -12,29 +12,37 @@
 ## What?
 
 Shareable [ESLint](http://eslint.org/) plugins that are used by our shareable config rules.
-See [eslint-config-silvermine](https://github.com/silvermine/eslint-config-silvermine/) for more details.
+See [eslint-config-silvermine][1] for more details.
 
 ## Why?
 
-Because we need it. Whitespace errors are evil. As are the other hundreds of types of errors this protects us from.
+Because we need it. Whitespace errors are evil. As are the other hundreds of types of errors
+this protects us from.
 
 ## Installation
 
 You'll first need to install [ESLint](http://eslint.org):
 
-```
+```shell
 $ npm install eslint --save-dev
+
++ eslint@8.16.0
+installed 9 packages and audited 955 packages in 5.833s
 ```
 
 Next, install `@silvermine/eslint-plugin-silvermine`:
 
-```
+```shell
 $ npm install @silvermine/eslint-plugin-silvermine --save-dev
+
++ @silvermine/eslint-plugin-silvermine@2.4.0
+installed 1 package and audited 955 packages in 4.95s
 ```
 
 ## Usage
 
-Add `silvermine` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+Add `silvermine` to the plugins section of your `.eslintrc` configuration file. You can
+omit the `eslint-plugin-` prefix:
 
 ```json
 {
@@ -57,10 +65,10 @@ Then configure the rules you want to use under the rules section.
 
 ## Supported Rules
 
-- [fluent-chaining](docs/rules/fluent-chaining.md)
-- [call-indentation](docs/rules/call-indentation.md)
-- [array-indentation](docs/rules/array-indentation.md)
-- [no-multiple-inline-functions](docs/rules/no-multiple-inline-functions.md)
+   * [fluent-chaining](docs/rules/fluent-chaining.md)
+   * [call-indentation](docs/rules/call-indentation.md)
+   * [array-indentation](docs/rules/array-indentation.md)
+   * [no-multiple-inline-functions](docs/rules/no-multiple-inline-functions.md)
 
 
 ## Note on Semantic Versioning
@@ -86,3 +94,5 @@ rules - in other words, primarily big policy changes rather than simply technica
 ## License
 
 This software is released under the MIT license. See [the license file](LICENSE) for more details.
+
+[1]: <https://github.com/silvermine/eslint-config-silvermine/>
