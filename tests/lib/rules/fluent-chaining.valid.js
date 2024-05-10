@@ -115,3 +115,10 @@ aPromise
    .catch(function(err) {
       return err;
    });
+
+// VALID - array accessors used on call expressions are an accepted pattern
+'https://google.com/#home?greeting=hello'
+   // Remove any query string:
+   .split('?')[0]
+   // Remove any hash:
+   .split('#')[0];

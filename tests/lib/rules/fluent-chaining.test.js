@@ -75,6 +75,22 @@ function checkNewLineError() {
    };
 }
 
+function checkAllowMemberExpressionWithArrayAccess() {
+   return {
+      code: formatCode(
+         '"https://google.com/#home?greeting=hello"',
+         '   .split()[0];'
+      ),
+      errors: [],
+      output: [
+         formatCode(
+            '"https://google.com/#home?greeting=hello"',
+            '   .split()[0];'
+         ),
+      ],
+   };
+}
+
 function checkNewLineErrorWithTabOption() {
    return {
       code: formatCode(
@@ -257,6 +273,11 @@ ruleTester.run('fluent-chaining - checkManyLinesError', fluentChaining, {
 ruleTester.run('fluent-chaining - checkManyLinesError', fluentChaining, {
    valid: [],
    invalid: [ checkManyLinesCommentError() ],
+});
+
+ruleTester.run('fluent-chaning - checkAllowMemberExpressionWithArrayAccess', fluentChaining, {
+   valid: [ checkAllowMemberExpressionWithArrayAccess() ],
+   invalid: [],
 });
 
 ruleTester.run('fluent-chaining - checkNewLineError', fluentChaining, {
