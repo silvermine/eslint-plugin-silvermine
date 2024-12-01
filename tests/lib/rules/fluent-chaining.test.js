@@ -12,7 +12,8 @@ var fluentChaining = require('../../../lib/rules/fluent-chaining'),
     RuleTester = require('eslint').RuleTester,
     fs = require('fs'),
     path = require('path'),
-    ruleTester = new RuleTester();
+    ruleTester = new RuleTester(),
+    es6RuleTester = require('../../ruleTesters').es6();
 
 // ------------------------------------------------------------------------------
 // Helpers
@@ -210,10 +211,26 @@ function checkSpacingErrorWhenNested() {
    };
 }
 
+function checkSpacingErrorWhenFunctionIsAwaited() {
+   return {
+      code: formatCode(
+         '(async () => {',
+         '   (await doSomething({',
+         '      prop: true',
+         '   }))',
+         '      .exec();',
+         '})'
+      ),
+      errors: [
+         chainingIndentationMatchErrorMessage(),
+      ],
+   };
+}
+
 function chainingIndentationMatchErrorMessage() {
    return {
-      message: 'Call expression should be on a new line and indented',
-      type: 'CallExpression',
+      message: 'Expression should have the same indention as previous call',
+      type: 'Identifier',
    };
 }
 
@@ -247,6 +264,20 @@ function checkChainingIndentationError2() {
          '   .then(function(something) {',
          '      return something.else;',
          '   });'
+      ),
+      errors: [
+         chainingIndentationMatchErrorMessage(),
+      ],
+   };
+}
+
+function checkChainingIndentationError3() {
+   return {
+      code: formatCode(
+         'new Class({',
+         '   prop: true',
+         '})',
+         '   .exec();'
       ),
       errors: [
          chainingIndentationMatchErrorMessage(),
@@ -315,6 +346,11 @@ ruleTester.run('fluent-chaining - checkSpacingErrorWhenNested', fluentChaining, 
    invalid: [ checkSpacingErrorWhenNested() ],
 });
 
+es6RuleTester.run('fluent-chaining - checkSpacingErrorWhenFunctionIsAwaited', fluentChaining, {
+   valid: [],
+   invalid: [ checkSpacingErrorWhenFunctionIsAwaited() ],
+});
+
 ruleTester.run('fluent-chaining - checkChainingIndentationError1', fluentChaining, {
    valid: [],
    invalid: [ checkChainingIndentationError1() ],
@@ -323,4 +359,9 @@ ruleTester.run('fluent-chaining - checkChainingIndentationError1', fluentChainin
 ruleTester.run('fluent-chaining - checkChainingIndentationError2', fluentChaining, {
    valid: [],
    invalid: [ checkChainingIndentationError2() ],
+});
+
+ruleTester.run('fluent-chaining - checkChainingIndentationError3', fluentChaining, {
+   valid: [],
+   invalid: [ checkChainingIndentationError3() ],
 });
