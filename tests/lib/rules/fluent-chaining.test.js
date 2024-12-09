@@ -12,7 +12,8 @@ var fluentChaining = require('../../../lib/rules/fluent-chaining'),
     RuleTester = require('eslint').RuleTester,
     fs = require('fs'),
     path = require('path'),
-    ruleTester = new RuleTester();
+    ruleTester = new RuleTester(),
+    es6RuleTester = require('../../ruleTesters').es6();
 
 // ------------------------------------------------------------------------------
 // Helpers
@@ -210,10 +211,26 @@ function checkSpacingErrorWhenNested() {
    };
 }
 
-function chainingIndentationMatchErrorMessage() {
+function checkSpacingErrorWhenFunctionIsAwaited() {
    return {
-      message: 'Call expression should be on a new line and indented',
-      type: 'CallExpression',
+      code: formatCode(
+         '(async () => {',
+         '   (await doSomething({',
+         '      prop: true',
+         '   }))',
+         '      .exec();',
+         '})'
+      ),
+      errors: [
+         chainingIndentationMatchErrorMessage('exec', 'AwaitExpression'),
+      ],
+   };
+}
+
+function chainingIndentationMatchErrorMessage(identifier, objectType) {
+   return {
+      message: `Expected identifier "${identifier}" to align with preceding ${objectType}`,
+      type: 'Identifier',
    };
 }
 
@@ -232,7 +249,7 @@ function checkChainingIndentationError1() {
          '   .done();'
       ),
       errors: [
-         chainingIndentationMatchErrorMessage(),
+         chainingIndentationMatchErrorMessage('spread', 'CallExpression'),
       ],
    };
 }
@@ -249,7 +266,54 @@ function checkChainingIndentationError2() {
          '   });'
       ),
       errors: [
-         chainingIndentationMatchErrorMessage(),
+         chainingIndentationMatchErrorMessage('then', 'CallExpression'),
+      ],
+   };
+}
+
+function checkChainingIndentationError3() {
+   return {
+      code: formatCode(
+         'new Class({',
+         '   prop: true',
+         '})',
+         '   .exec();'
+      ),
+      errors: [
+         chainingIndentationMatchErrorMessage('exec', 'NewExpression'),
+      ],
+   };
+}
+
+function checkChainingIndentationError4() {
+   return {
+      code: formatCode(
+         'new Class({',
+         '   items: [',
+         '      1,',
+         '      2,',
+         '   ]',
+         '      .filter(isNotNullOrUndefined),',
+         '});'
+      ),
+      errors: [
+         chainingIndentationMatchErrorMessage('filter', 'ArrayExpression'),
+      ],
+   };
+}
+
+
+function checkChainingIndentationError5() {
+   return {
+      code: formatCode(
+         'var arr = [',
+         '   1,',
+         '   2,',
+         ']',
+         '   .filter(isNotNullOrUndefined);'
+      ),
+      errors: [
+         chainingIndentationMatchErrorMessage('filter', 'ArrayExpression'),
       ],
    };
 }
@@ -315,6 +379,11 @@ ruleTester.run('fluent-chaining - checkSpacingErrorWhenNested', fluentChaining, 
    invalid: [ checkSpacingErrorWhenNested() ],
 });
 
+es6RuleTester.run('fluent-chaining - checkSpacingErrorWhenFunctionIsAwaited', fluentChaining, {
+   valid: [],
+   invalid: [ checkSpacingErrorWhenFunctionIsAwaited() ],
+});
+
 ruleTester.run('fluent-chaining - checkChainingIndentationError1', fluentChaining, {
    valid: [],
    invalid: [ checkChainingIndentationError1() ],
@@ -323,4 +392,19 @@ ruleTester.run('fluent-chaining - checkChainingIndentationError1', fluentChainin
 ruleTester.run('fluent-chaining - checkChainingIndentationError2', fluentChaining, {
    valid: [],
    invalid: [ checkChainingIndentationError2() ],
+});
+
+ruleTester.run('fluent-chaining - checkChainingIndentationError3', fluentChaining, {
+   valid: [],
+   invalid: [ checkChainingIndentationError3() ],
+});
+
+ruleTester.run('fluent-chaining - checkChainingIndentationError4', fluentChaining, {
+   valid: [],
+   invalid: [ checkChainingIndentationError4() ],
+});
+
+ruleTester.run('fluent-chaining - checkChainingIndentationError5', fluentChaining, {
+   valid: [],
+   invalid: [ checkChainingIndentationError5() ],
 });
