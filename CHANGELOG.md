@@ -1,6 +1,20 @@
-# Change Log
+# Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [our coding standards][commit-messages] for commit guidelines.
+
+## [2.5.0](https://github.com/silvermine/eslint-plugin-silvermine/compare/v2.4.0...v2.5.0) (2024-12-10)
+
+
+### Features
+
+* allow array access in fluent chainging ([#54](https://github.com/silvermine/eslint-plugin-silvermine/issues/54)) ([c112091](https://github.com/silvermine/eslint-plugin-silvermine/commit/c112091068a1f9067ce4df8e769156f5ece46def))
+
+
+### Bug Fixes
+
+* lint chained expressions after class or awaited expression ([#62](https://github.com/silvermine/eslint-plugin-silvermine/issues/62)) ([7f69d18](https://github.com/silvermine/eslint-plugin-silvermine/commit/7f69d18b797ab55223c91035fb28ff10848f6ec3))
+
 
 ## [2.3.0-rc.0](https://github.com/silvermine/eslint-plugin-silvermine/compare/v2.2.1...v2.3.0-rc.0) (2020-01-22)
 
