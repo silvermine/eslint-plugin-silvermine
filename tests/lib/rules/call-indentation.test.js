@@ -9,8 +9,7 @@
 
 var rule = require('../../../lib/rules/call-indentation'),
     formatCode = require('../../code-helper'),
-    RuleTester = require('eslint').RuleTester,
-    ruleTester = new RuleTester(),
+    ruleTester = require('../../ruleTesters').typeScript(),
     MSG_ARG_ON_NEW_LINE = 'When arguments are on their own line, they must all be on their own line',
     MSG_PAREN_ON_NEW_LINE = 'Closing parenthesis should be on a new line',
     MSG_CALL_SAME_INDENT = 'Call expressions must begin and end with the same indentation',
@@ -231,7 +230,11 @@ validExample = formatCode(
    '   function() {',
    '      something();',
    '   }',
-   ');'
+   ');',
+   'const props = defineProps<{',
+   '   label: string;',
+   '   count: number',
+   '}>();'
 );
 
 // ------------------------------------------------------------------------------
